@@ -1,6 +1,8 @@
-header {
-  margin-top: 125px;
-  padding-bottom: 125px;
+@media (max-height: 450px) {
+  header {
+    margin-top: 125px;
+    padding-bottom: 125px;
+  }
 }
 
 @media (min-height: 450px) {
