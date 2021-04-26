@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="keywords"
+      content="Software, Engineer, Developer, Computer, Science, Kazim, Naqvi"
+    />
+    <meta name="description" content="Kazim's personal website." />
+    <meta name="author" content="Kazim Naqvi" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="./styles/styles.css" />
+    <link rel="shortcut icon" type="image/jpg" href="./media/favicon.ico" />
+    <script
+      src="https://kit.fontawesome.com/ecaa465c16.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Kazim Naqvi</title>
+  </head>
+  <body>
+    <nav>
+      <a href="./index.html" class="logo">Kazim Naqvi</a>
+      <input class="menu-btn" type="checkbox" id="menu-btn" />
+      <label class="menu-icon" for="menu-btn"
+        ><span class="navicon"></span
+      ></label>
+      <ul class="menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li>
+          <a href="./photography.html"
+            >Photography <span class="fas fa-external-link-alt"></span
+          ></a>
+        </li>
+      </ul>
+    </nav>
+
+    <header id="bio-header">
+      <img id="avatar" src="./media/profile.jpeg" alt="Avatar" />
+      <p id="name-tag">Kazim Naqvi</p>
+      <p id="bio">
+        Full Stack Developer.
+        <br />
+        Incoming Software Engineering Intern at HubSpot.
+      </p>
+      <div class="cta-bar">
+        <a
+          class="cta-link fab fa-github"
+          href="https://github.com/smknaqvi"
+          target="_blank"
+        >
+        </a>
+        <a
+          class="cta-link fab fa-linkedin"
+          href="https://linkedin.com/in/smknaqvi"
+          target="_blank"
+        ></a>
+        <a
+          class="cta-link fas fa-envelope"
+          href="mailto:k.naqvi@mail.utoronto.ca"
+          target="_blank"
+        ></a>
+      </div>
+    </header>
+    <section id="about" class="info-block">
+      <h1>About Me</h1>
+      <p class="description">
+        Hi there, I'm Kazim! I'm a Software Developer and a novice picture taker
+        on the side.
+      </p>
+    </section>
+    <section id="education" class="info-block">
+      <h1>Education</h1>
+      <div class="education-elem">
+        <h2 class="title">University of Toronto</h2>
+        <h3 class="subtitle">
+          Honours Bachelor of Science (Computer Science - Co-op)
+        </h3>
+        <p class="timeline">
+          <em>2017 - 2022 (Expected Graduation: April 2022)</em>
+        </p>
+        <p class="description">GPA: 3.5/4.0</p>
+      </div>
+    </section>
+    <section id="experience" class="info-block">
+      <h1>Experience</h1>
+      <div class="exp-elem">
+        <h2 class="title">Software Engineering Co-op</h2>
+        <h3 class="subtitle">HubSpot</h3>
+        <p class="location">Cambridge, MA</p>
+        <p class="timeline">
+          <em>January 2020 - August 2020 and June 2021 - August 2021</em>
+        </p>
+        <p class="tools">Tools: JavaScript, React, Flux, Redux, Selenium</p>
+        <ul class="info-list">
+          <li>
+            Implemented parts of the new
+            <strong
+              ><a
+                href="https://knowledge.hubspot.com/calling/use-the-calling-tool"
+                target="_blank"
+                class="keyword"
+                >calling widget</a
+              ></strong
+            >
+            redesign used by thousands of HubSpot users.
+          </li>
+          <li>
+            Engineered front end for
+            <strong class="keyword"
+              ><a
+                href="https://knowledge.hubspot.com/calling/create-custom-call-outcomes"
+                target="_blank"
+                class="keyword"
+                >custom call outcomes</a
+              ></strong
+            >, one of the most highly requested features from users for calling.
+          </li>
+          <li>
+            Developed front end for new
+            <strong class="keyword"
+              ><a
+                href="https://knowledge.hubspot.com/calling/manage-phone-numbers-registered-for-calling"
+                target="_blank"
+                class="keyword"
+                >register phone number</a
+              ></strong
+            >
+            flow, resulting in more than a 50% decrease of support tickets for
+            phone number registration.
+          </li>
+          <li>
+            Designed and developed the front end for an
+            <strong class="keyword">internal call search tool</strong> that
+            enables the HubSpot support team to diagnose customer problems more
+            easily.
+          </li>
+        </ul>
+      </div>
+      <div class="exp-elem">
+        <h2 class="title">Full Stack Developer Co-op, Part-time</h2>
+        <h3 class="subtitle">University of Toronto, The BRIDGE</h3>
+        <p class="location">Toronto, ON</p>
+        <p class="timeline">
+          <em>May 2019 - December 2019 and January 2021 - March 2021</em>
+        </p>
+        <p class="tools">Tools: JavaScript, Express, Docker, Nginx, React</p>
+        <ul class="info-list">
+          <li>
+            Designed and developed an application for collecting immigration
+            agency data securely for data analysis.
+          </li>
+          <li>
+            Implemented
+            <strong class="keyword">public key cryptography</strong> of data
+            into the platform to ensure collected information is secure.
+          </li>
+          <li>
+            Deployed an
+            <strong class="keyword">on-premise instance of Sentry</strong>
+            enabling the developer team to diagnose bugs more efficiently.
+          </li>
+          <li>
+            Engineered an
+            <strong class="keyword">extensible data parser</strong> that makes
+            it possible for agencies to upload data of various different formats
+            without modifying it.
+          </li>
+        </ul>
+      </div>
+      <div class="exp-elem">
+        <h2 class="title">Business Intelligence Developer</h2>
+        <h3 class="subtitle">
+          Ontario Shores Centre for Mental Health Sciences
+        </h3>
+        <p class="location">Whitby, ON</p>
+        <p class="timeline"><em>September 2018 - December 2018</em></p>
+        <p class="tools">
+          Tools: SQL Server, SSDT (Analysis, Integration, Reporting), Power BI
+        </p>
+        <ul class="info-list">
+          <li>
+            Built objects such as tables, stored procedures, and an
+            <strong class="keyword">analysis database</strong> to enable
+            analysts and developers to build reports.
+          </li>
+          <li>
+            Developed a
+            <strong class="keyword">self-serving data model</strong> for the
+            finance department, reducing analysis time by over 60 hours per
+            month.
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section id="projects" class="info-block">
+      <h1>Projects</h1>
+      <div class="project-elem">
+        <h2 class="title">
+          YouTube Party
+          <a
+            class="fab fa-github"
+            href="https://github.com/smknaqvi/project-smol-brain"
+            target="_blank"
+          >
+          </a>
+        </h2>
+        <p class="tools">
+          Tools: TypeScript, React, Express, Socket.io, MongoDB, Redis, Docker,
+          Nginx
+        </p>
+        <p class="description">
+          Worked in a team of three developers to create a web app for watching
+          YouTube videos with friends. Think Netflix party, but for YouTube. You
+          can check out the web app
+          <a class="keyword" href="https://ytparty.ml" target="_blank">here</a>.
+        </p>
+      </div>
+      <div class="project-elem">
+        <h2 class="title">
+          SportCred
+          <a
+            class="fab fa-github"
+            href="https://github.com/smknaqvi/project-todo"
+            target="_blank"
+          >
+          </a>
+        </h2>
+        <p class="tools">Tools: JavaScript, React, Redux, Express, MongoDB</p>
+        <p class="description">
+          A school project for CSCC01. Worked in a team of seven to create a
+          sports social media app for sports fans and analysts. Users can create
+          posts, share analysis, debate, and play trivia games on the platform.
+        </p>
+      </div>
+      <div class="project-elem">
+        <h2 class="title">
+          Personal Website (WIP)
+          <a class="disabled fab fa-github" target="_blank"> </a>
+        </h2>
+        <p class="tools">Tools: Webpack, Pug, HTML, CSS, JavaScript</p>
+        <p class="description">
+          A simple personal website that uses a Strapi as its headless CMS.
+        </p>
+      </div>
+    </section>
+    <hr />
+    <footer id="bio-footer">
+      <p class="title"><em>Kazim Naqvi</em></p>
+      <div class="cta-bar">
+        <a
+          class="cta-link fab fa-github"
+          href="https://github.com/smknaqvi"
+          target="_blank"
+        >
+        </a>
+        <a
+          class="cta-link fab fa-linkedin"
+          href="https://linkedin.com/in/smknaqvi"
+          target="_blank"
+        ></a>
+        <a
+          class="cta-link fas fa-envelope"
+          href="mailto:k.naqvi@mail.utoronto.ca"
+          target="_blank"
+        ></a>
+      </div>
+    </footer>
+  </body>
+</html>
