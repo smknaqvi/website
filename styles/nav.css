@@ -1,20 +1,19 @@
-:root {
-  --navbar-height: 4rem;
+header {
+  margin-top: 125px;
+  padding-bottom: 125px;
 }
 
+@media (min-height: 450px) {
+  header {
+    margin-top: 65px;
+  }
+}
 html {
   scroll-behavior: smooth;
 }
 
-header {
-  margin-top: var(--navbar-height);
-}
-
-:target::before {
-  content: "";
-  display: block;
-  height: calc(var(--navbar-height) + 2 * var(--space));
-  margin: calc(-1 * (var(--navbar-height) + 2 * var(--space))) 0 0;
+section {
+  scroll-margin-top: 65px;
 }
 
 nav {
