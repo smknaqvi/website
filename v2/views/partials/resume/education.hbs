@@ -1,0 +1,13 @@
+<section id="education" class="info-block">
+  <h1>Education</h1>
+  {{#each this}}
+    <div class="education-elem">
+      <h2 class="title">{{school}}</h2>
+      <h3 class="subtitle">{{studyType}}</h3>
+      <p class="timeline">
+        <em>{{timeline}}</em>
+      </p>
+      <p class="description">{{description}}</p>
+    </div>
+  {{/each}}
+</section>

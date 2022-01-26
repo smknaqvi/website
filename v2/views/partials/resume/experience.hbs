@@ -1,0 +1,19 @@
+<section id="experience" class="info-block">
+  <h1>Experience</h1>
+  {{#each this}}
+    <div class="exp-elem">
+      <h2 class="title">{{title}}</h2>
+      <h3 class="subtitle">{{org}}</h3>
+      <p class="location">{{location}}</p>
+      <p class="timeline">
+        <em>{{timeline}}</em>
+      </p>
+      <p class="tools">{{skills}}</p>
+      <ul class="info-list">
+        {{#each details}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  {{/each}}
+</section>

@@ -1,0 +1,64 @@
+@import url("./globals.css");
+@import url("./nav.css");
+@import url("./header.css");
+@import url("./sections.css");
+@import url("./footer.css");
+
+* {
+  font-family: monospace;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: var(--base-color);
+  color: var(--default-color);
+  height: 100%;
+  margin: 0;
+}
+
+h1:not(#nav-title) {
+  font-size: var(--heading-font-size);
+  color: var(--primary-color);
+  margin: 0;
+}
+
+p,
+li,
+span,
+div {
+  font-size: var(--default-font-size);
+}
+
+section {
+  margin: calc(4 * var(--space));
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--secondary-color);
+  transition: var(--default-transition);
+}
+
+.cta-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: calc(200px + 4vw);
+}
+
+.cta-link {
+  color: inherit;
+  font-size: 4rem;
+}
+
+.disabled,
+.disabled:hover {
+  color: var(--default-color) !important;
+}
