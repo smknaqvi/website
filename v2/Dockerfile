@@ -8,6 +8,4 @@ RUN yarn install
 
 RUN yarn run build
 
-EXPOSE 80
-
 ENTRYPOINT ["node", "dist/app.js"]
