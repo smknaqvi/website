@@ -10,6 +10,7 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import cors from "cors";
 import dotenv from "dotenv";
+import path from "path";
 
 dotenv.config();
 const port = process.env.PORT;
@@ -49,8 +50,8 @@ app.engine(
   engine({
     defaultLayout: "main",
     extname: ".hbs",
-    layoutsDir: "./views/layouts",
-    partialsDir: "./views/partials",
+    layoutsDir: path.join(__dirname, "../views/layouts"),
+    partialsDir: path.join(__dirname, "../views/partials"),
   })
 );
 
