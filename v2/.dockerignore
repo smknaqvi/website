@@ -4,3 +4,7 @@ dist/
 .prettierrc
 .env
 .git/
+.dockerignore
+Dockerfile
+LICENCSE
+READEME.md

@@ -18,10 +18,8 @@ const cmsAuthToken = process.env.CMS_AUTH_TOKEN;
 const cmsUri = process.env.CMS_URI;
 
 const corsOptions = {
-  origin: "*",
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  methods: "GET",
   preflightContinue: false,
-  optionsSuccessStatus: 200,
 };
 
 const app = express();

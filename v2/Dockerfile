@@ -2,19 +2,9 @@ FROM node:lts-alpine
 
 WORKDIR /app
 
-COPY package.json yarn.lock /app/
+COPY . /app/
 
 RUN yarn install
-
-COPY src /app/src
-
-COPY views /app/views
-
-COPY styles /app/styles
-
-COPY media /app/media
-
-COPY tsconfig.json /app/
 
 RUN yarn run build
 
