@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  personal_website:
+    container_name: personal-website
+    build: ./
+    ports:
+      - 5000:5000
+    env_file:
+      - ./.env
+    restart: unless-stopped

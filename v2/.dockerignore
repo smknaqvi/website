@@ -6,5 +6,6 @@ dist/
 .git/
 .dockerignore
 Dockerfile
+docker-compose.yml
 LICENCSE
 READEME.md
