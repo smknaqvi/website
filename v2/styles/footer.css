@@ -1,7 +1,0 @@
-#bio-footer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  padding: calc(5 * var(--space));
-}
