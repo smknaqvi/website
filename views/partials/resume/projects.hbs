@@ -1,12 +1,17 @@
-<section id="projects" class="info-block">
+<section id='projects' class='info-block'>
   <h1>Projects</h1>
   {{#each this}}
-    <div class="project-elem">
-      <h2 class="title">
+    <div class='project-elem'>
+      <h2 class='title'>
         {{name}}
-        <a class="fab fa-github" href="{{repoUrl}}" target="_blank"></a>
+        <a
+          class='fab fa-github'
+          href='{{repoUrl}}'
+          target='_blank'
+          rel='noreferrer'
+        ></a>
       </h2>
-      <p class="tools">{{skills}}</p>
+      <p class='tools'>{{skills}}</p>
       {{{description.html}}}
     </div>
   {{/each}}
