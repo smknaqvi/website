@@ -1,6 +1,6 @@
 node_modules
 dist/
-.eslintrc.json
+.eslintrc.js
 .prettierrc
 .env
 .git/
@@ -9,3 +9,4 @@ Dockerfile
 docker-compose.yml
 LICENCSE
 READEME.md
+gql-schema.json
