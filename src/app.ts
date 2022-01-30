@@ -79,6 +79,7 @@ app.get("/", (req, res) => {
             title
             org
             location
+            timeline
             skills
             details {
               html
