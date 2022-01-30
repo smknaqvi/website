@@ -1,116 +1,61 @@
-import "cross-fetch/polyfill";
-import express from "express";
-import { engine } from "express-handlebars";
-import {
-  createHttpLink,
-  ApolloClient,
-  InMemoryCache,
-  gql,
-} from "@apollo/client/core";
-import { setContext } from "@apollo/client/link/context";
-import cors from "cors";
-import dotenv from "dotenv";
-import path from "path";
+import 'cross-fetch/polyfill';
+import './initDotenv';
+import express from 'express';
+import { engine } from 'express-handlebars';
+import { client } from './apollo';
+import { getResumeQuery } from './queries/getResumeQuery';
+import cors from 'cors';
+import path from 'path';
+import { GetResume } from './queries/types/GetResume';
 
-dotenv.config();
 const port = process.env.PORT;
-const cmsAuthToken = process.env.CMS_AUTH_TOKEN;
-const cmsUri = process.env.CMS_URI;
 
 const corsOptions = {
-  methods: "GET",
+  methods: 'GET',
   preflightContinue: false,
 };
 
 const app = express();
 
-const httpLink = createHttpLink({
-  uri: cmsUri,
-});
-
-const authLink = setContext((_, { headers }) => ({
-  headers: {
-    ...headers,
-    authorization: `Bearer ${cmsAuthToken}`,
-  },
-}));
-
-const client = new ApolloClient({
-  link: authLink.concat(httpLink),
-  cache: new InMemoryCache(),
-});
-
-app.use("/styles", express.static("styles"));
-app.use("/media", express.static("media"));
+app.use('/styles', express.static('styles'));
+app.use('/media', express.static('media'));
 
 app.engine(
-  "hbs",
+  'hbs',
   engine({
-    defaultLayout: "main",
-    extname: ".hbs",
-    layoutsDir: path.join(__dirname, "../views/layouts"),
-    partialsDir: path.join(__dirname, "../views/partials"),
+    defaultLayout: 'main',
+    extname: '.hbs',
+    layoutsDir: path.join(__dirname, '../views/layouts'),
+    partialsDir: path.join(__dirname, '../views/partials'),
   })
 );
 
-app.set("view engine", "hbs");
+app.set('view engine', 'hbs');
 app.use(cors(corsOptions));
 
-app.get("/", (req, res) => {
+app.get('/', (req, res) => {
   client
     .query({
-      query: gql`
-        {
-          personalBio(where: { name: "Kazim Naqvi" }) {
-            name
-            careerStatus
-            about
-            gitUrl
-            linkedinUrl
-            email
-          }
-          educations(orderBy: startDate_DESC) {
-            school
-            fieldOfStudy
-            timeline
-            description
-          }
-          experiences(orderBy: startDate_DESC) {
-            title
-            org
-            location
-            timeline
-            skills
-            details {
-              html
-            }
-          }
-          projects(orderBy: createdAt_DESC) {
-            name
-            repoUrl
-            skills
-            description {
-              html
-            }
-          }
-        }
-      `,
+      query: getResumeQuery,
     })
-    .then((result) => {
-      const {
-        data: { personalBio, educations, experiences, projects },
-      } = result;
-      res.render("resume", {
+    .then(({ data }: { data: GetResume }) => {
+      const { personalBio, educations, experiences, projects } = data;
+
+      res.render('resume', {
         personalBio,
-        title: personalBio.name,
+        title: personalBio?.name || '',
         educations,
         experiences,
         projects,
       });
-    })
-    .catch((result) => console.error(result));
+    });
+});
+
+app.get('*', (req, res) => {
+  res.redirect('/');
 });
 
 app.listen(port, () => {
+  // eslint-disable-next-line no-console
   console.log(`Listening at http://localhost:${port}`);
 });
