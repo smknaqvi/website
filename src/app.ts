@@ -2,6 +2,7 @@ import 'cross-fetch/polyfill';
 import './initDotenv';
 import path from 'path';
 import express, { NextFunction, Request, Response } from 'express';
+import bodyParser from 'body-parser';
 import { engine } from 'express-handlebars';
 import { client } from './apollo';
 import { verifyWebhookSignature } from '@graphcms/utils';
@@ -9,9 +10,12 @@ import { getResumeQuery } from './queries/getResumeQuery';
 import { GetResume } from './queries/types/GetResume';
 
 const port = process.env.PORT as string;
-const cmsWebhookSecreteKey = process.env.CMS_WEBHOOK_SECRET_KEY as string;
+const cmsWebhookSecretKey = process.env.CMS_WEBHOOK_SECRET_KEY as string;
 
 const app = express();
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use('/styles', express.static('styles'));
 app.use('/media', express.static('media'));
@@ -54,13 +58,13 @@ app.get('*', (req, res) => {
 app.post('/update', (req, res) => {
   const signature =
     (Array.isArray(req.headers['gcms-signature'])
-      ? req.headers['gcms-signature'][0]
-      : req.headers['gcms-signature']) ?? '';
+      ? req.headers['gcms-signature']
+      : [req.headers['gcms-signature']]) ?? [];
 
   const isValid = verifyWebhookSignature({
     body: req.body,
     signature,
-    secret: cmsWebhookSecreteKey,
+    secret: cmsWebhookSecretKey,
   });
 
   if (!isValid) {
