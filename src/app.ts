@@ -58,8 +58,8 @@ app.get('*', (req, res) => {
 app.post('/update', (req, res) => {
   const signature =
     (Array.isArray(req.headers['gcms-signature'])
-      ? req.headers['gcms-signature']
-      : [req.headers['gcms-signature']]) ?? [];
+      ? req.headers['gcms-signature'][0]
+      : req.headers['gcms-signature']) ?? '';
 
   const isValid = verifyWebhookSignature({
     body: req.body,
@@ -68,7 +68,7 @@ app.post('/update', (req, res) => {
   });
 
   if (!isValid) {
-    return res.status(403);
+    return res.status(403).send('forbidden!');
   }
 
   client
