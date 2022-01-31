@@ -1,7 +1,7 @@
 import 'cross-fetch/polyfill';
 import './initDotenv';
 import path from 'path';
-import express from 'express';
+import express, { NextFunction, Request, Response } from 'express';
 import { engine } from 'express-handlebars';
 import { client } from './apollo';
 import { verifyWebhookSignature } from '@graphcms/utils';
@@ -71,6 +71,11 @@ app.post('/update', (req, res) => {
     .resetStore()
     .then(() => res.status(200).send('success'))
     .catch(() => res.status(500).send('internal server error'));
+});
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+  res.status(500).send('internal server error');
 });
 
 app.listen(port, () => {
