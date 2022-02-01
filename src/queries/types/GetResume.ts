@@ -7,6 +7,14 @@
 // GraphQL query operation: GetResume
 // ====================================================
 
+export interface GetResume_personalBio_picture {
+  __typename: "Asset";
+  /**
+   * Get the url for the asset with provided transformations applied.
+   */
+  url: string;
+}
+
 export interface GetResume_personalBio {
   __typename: "PersonalBio";
   name: string;
@@ -15,6 +23,7 @@ export interface GetResume_personalBio {
   gitUrl: string | null;
   linkedinUrl: string | null;
   email: string | null;
+  picture: GetResume_personalBio_picture | null;
 }
 
 export interface GetResume_educations {

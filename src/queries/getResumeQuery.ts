@@ -9,6 +9,9 @@ export const getResumeQuery = gql`
       gitUrl
       linkedinUrl
       email
+      picture {
+        url
+      }
     }
     educations(orderBy: startDate_DESC) {
       school
