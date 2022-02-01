@@ -2,6 +2,7 @@ import 'cross-fetch/polyfill';
 import './initDotenv';
 import path from 'path';
 import express, { NextFunction, Request, Response } from 'express';
+import { updateLimiter, defaultLimiter } from './utils/rateLimiters';
 import bodyParser from 'body-parser';
 import { engine } from 'express-handlebars';
 import { client } from './apollo';
@@ -19,6 +20,8 @@ app.use(bodyParser.json());
 
 app.use('/styles', express.static('styles'));
 app.use('/media', express.static('media'));
+
+app.use(defaultLimiter);
 
 app.engine(
   'hbs',
@@ -55,7 +58,7 @@ app.get('*', (req, res) => {
   res.redirect('/');
 });
 
-app.post('/update', (req, res) => {
+app.post('/update', updateLimiter, (req, res) => {
   const signature =
     (Array.isArray(req.headers['gcms-signature'])
       ? req.headers['gcms-signature'][0]
